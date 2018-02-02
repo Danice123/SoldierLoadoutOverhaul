@@ -1,0 +1,1 @@
+class X2DownloadableContentInfo_SoldierLoadoutOverhaul extends X2DownloadableContentInfo;

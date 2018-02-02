@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Guid>5018ccb2-43bc-4259-b360-30c2181c3543</Guid>
+    <Name>Soldier Loadout Overhaul</Name>
+    <Description>QoL overhaul of the loadout screen. Adds categories for each slot, as an intermediate step to getting the list of equipment. The categories are based on weapon/item type, and are completely configurable from the ini file. There is also an 'other' tab, which will collect any item that doesn't fit into a category. You can also ignore slots, and they will work the same as the vanilla loadout. Features for future updates: Images for the categories.</Description>
+    <SteamPublishID>0</SteamPublishID>
+    <AssemblyName>Soldier Loadout Overhaul</AssemblyName>
+    <RootNamespace>Soldier Loadout Overhaul</RootNamespace>
+    <ProjectGuid>{12065b30-e94c-4af4-98da-60c8a0d8953b}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Config\XComArmory_Overhaul_Defaults.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Config\XComEditor.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Config\XComEngine.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Config\XComGame.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModPreview.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ReadMe.txt" />
+    <Content Include="Src\SoldierLoadoutOverhaul\Classes\CategoryOptions.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\SoldierLoadoutOverhaul\Classes\UIArmory_LoadoutItem_Overhaul.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\SoldierLoadoutOverhaul\Classes\UIArmory_Loadout_Overhaul.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\SoldierLoadoutOverhaul\Classes\X2DownloadableContentInfo_SoldierLoadoutOverhaul.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\SoldierLoadoutOverhaul\Classes\CategoryOptions_Defaults.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\SoldierLoadoutOverhaul\MCM_API_CfgHelpers.uci">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+    <Folder Include="Src" />
+    <Folder Include="Src\SoldierLoadoutOverhaul" />
+    <Folder Include="Src\SoldierLoadoutOverhaul\Classes" />
+  </ItemGroup>
+  <Import Project="$(MSBuildLocalExtensionPath)\XCOM2.targets" />
+</Project>
