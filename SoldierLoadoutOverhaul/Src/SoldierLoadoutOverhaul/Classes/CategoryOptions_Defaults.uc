@@ -2,4 +2,5 @@ class CategoryOptions_Defaults extends Object config(Armory_Overhaul_Defaults) d
 
 var config array<LockerCategoryItem> Categories;
 var config array<EInventorySlot> IgnoredCategories;
+var config array<CategoryOverride> CategoryOverrides;
 var config int Version;

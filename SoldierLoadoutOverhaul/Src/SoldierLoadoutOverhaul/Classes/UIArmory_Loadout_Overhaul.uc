@@ -19,6 +19,12 @@ struct InventoryItem
 	var string DisabledReason;
 };
 
+struct CategoryOverride
+{
+	var name Item;
+	var name Category;
+};
+
 var bool isCategoryView;
 var LockerCategoryItem OpenCategory;
 var LockerCategoryItem NullCategory;
@@ -253,6 +259,15 @@ simulated function name GetItemTemplateCategory(X2ItemTemplate ItemTemplate)
 {
 	local X2WeaponTemplate WeaponTemplate;
 	local name TemplateCategory;
+	local array<CategoryOverride> Overrides;
+	local int i;
+
+	Overrides = Options.GetCategoryOverrides();
+	i = Overrides.Find('Item', ItemTemplate.DataName);
+	if (i != INDEX_NONE)
+	{
+		return Overrides[i].Category;
+	}
 
 	TemplateCategory = ItemTemplate.ItemCat;
 	if (ItemTemplate.ItemCat == 'weapon')
