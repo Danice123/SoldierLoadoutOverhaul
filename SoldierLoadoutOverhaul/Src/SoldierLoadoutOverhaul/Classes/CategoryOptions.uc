@@ -3,7 +3,7 @@ class CategoryOptions extends Object config(Armory_Overhaul) dependson(UIArmory_
 `include(SoldierLoadoutOverhaul/Src/SoldierLoadoutOverhaul/MCM_API_CfgHelpers.uci)
 
 var config array<LockerCategoryItem> Categories;
-var config array<EInventorySlot> IgnoredCategories;
+var config array<EInventorySlot> CategoryWhitelist;
 var config array<CategoryOverride> CategoryOverrides;
 var config int CONFIG_VERSION;
 
@@ -14,9 +14,9 @@ function array<LockerCategoryItem> getCategories()
 	return Categories;
 }
 
-function array<EInventorySlot> GetIgnoredCategories()
+function array<EInventorySlot> GetCategoryWhitelist()
 {
-	return IgnoredCategories;
+	return CategoryWhitelist;
 }
 
 function array<CategoryOverride> GetCategoryOverrides()
@@ -27,7 +27,7 @@ function array<CategoryOverride> GetCategoryOverrides()
 function Load()
 {
 	Categories = `MCM_CH_GetValue(class'CategoryOptions_Defaults'.default.Categories,Categories);
-	IgnoredCategories = `MCM_CH_GetValue(class'CategoryOptions_Defaults'.default.IgnoredCategories,IgnoredCategories);
+	CategoryWhitelist = `MCM_CH_GetValue(class'CategoryOptions_Defaults'.default.CategoryWhitelist,CategoryWhitelist);
 	CategoryOverrides = `MCM_CH_GetValue(class'CategoryOptions_Defaults'.default.CategoryOverrides,CategoryOverrides);
 	CONFIG_VERSION = `MCM_CH_GetCompositeVersion();
     self.SaveConfig();

@@ -120,9 +120,9 @@ simulated function OnItemClicked(UIList ContainerList, int ItemIndex)
 	local EInventorySlot SelectedSlot;
 	local UIArmory_LoadoutItem_Overhaul SelectedItem;
 	local bool WeaponAvaliable;
-	local array<EInventorySlot> IgnoredCategories;
+	local array<EInventorySlot> CategoryWhitelist;
 
-	IgnoredCategories = Options.GetIgnoredCategories();
+	CategoryWhitelist = Options.GetCategoryWhitelist();
 
 	if(ContainerList != ActiveList) return;
 
@@ -145,17 +145,17 @@ simulated function OnItemClicked(UIList ContainerList, int ItemIndex)
 
 	if(ContainerList == EquippedList)
 	{
-		if (IgnoredCategories.Find(SelectedSlot) != -1)
-		{
-			// Ignored Category, set category to none and load all items in slot
-			OpenCategory = NullCategory;
-			UpdateLockerList();
-		}
-		else
+		if (CategoryWhitelist.Find(SelectedSlot) != INDEX_NONE)
 		{
 			// Load Category view
 			isCategoryView = true;
 			UpdateLockerListCategories();
+		}
+		else
+		{
+			// Ignored Category, set category to none and load all items in slot
+			OpenCategory = NullCategory;
+			UpdateLockerList();
 		}
 		ChangeActiveList(LockerList);
 	}
